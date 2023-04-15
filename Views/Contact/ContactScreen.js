@@ -1,12 +1,27 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet, TextInput, View } from 'react-native'
 
 const ContactScreen = () => {
   return (
-    <View>
-        <Text>Contacto</Text>
-    </View>
+    <SafeAreaView>
+      <View>
+        <TextInput style={styles.inputContact} placeholder='Name'/>
+        <TextInput style={styles.inputContact} placeholder='Email' inputMode='email'/>
+        <TextInput style={styles.inputContact} placeholder='Address'/>
+        <TextInput style={styles.inputContact} placeholder='Phone' inputMode='numeric'/>
+        <TextInput style={styles.inputContact} placeholder='Birth day'/>
+      </View>
+    </SafeAreaView>
   )
 }
+
+const styles = StyleSheet.create({
+  inputContact: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10
+  }
+})
 
 export default ContactScreen
