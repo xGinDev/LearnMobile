@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { Text, TouchableOpacity, View, SafeAreaView } from 'react-native'
-import style from './ButtonCount.css'
 
-const ButtonCount = () => {
+const CountScreen = () => {
   const [count, setCount] = useState(0);
 
   const handleIncrement = () => {
@@ -10,15 +9,15 @@ const ButtonCount = () => {
   }
 
   return (
-    <SafeAreaView style={style.container}>
+    <SafeAreaView>
       <View>
-        <Text>Count: {count}</Text>
+        <Text>{count ? (`Count: ${count}`) : null}</Text>
       </View>
-      <TouchableOpacity style={style.buttonCount} onPress={() => handleIncrement()}>
+      <TouchableOpacity onPress={() => handleIncrement()}>
         <Text>Clickea!</Text>
       </TouchableOpacity>
     </SafeAreaView>
   )
 }
 
-export default ButtonCount
+export default CountScreen
