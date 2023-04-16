@@ -1,10 +1,12 @@
 import React from 'react'
 import { Button, View, Text } from 'react-native'
+import ButtonCount from './Components/ButtonCount'
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({ navigation }) => {
   return (
     <View>
-        <Button title='Go to contact' onPress={() => navigation.navigate('Contact')}/>
+      <ButtonCount />
+      {/* <Button title='Go to contact' onPress={() => navigation.navigate('Contact')} /> */}
     </View>
   )
 }
