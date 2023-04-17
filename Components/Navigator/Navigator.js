@@ -13,7 +13,7 @@ const Navigator = () => {
   return (
     <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name='Home' component={HomeScreen} options={{title: 'Welcome'}}/>
+          <Stack.Screen name='Home' component={HomeScreen} options={{title: 'Welcome', headerStyle: {backgroundColor: '#000'}, headerTintColor: '#fff', headerTitleStyle: {fontWeight: '700'}}}/>
           <Stack.Screen name='Contact' component={ContactScreen}/>
           <Stack.Screen name='CountScreen' component={CountScreen}/>
           <Stack.Screen name='Modal' component={ModalScreen}/>

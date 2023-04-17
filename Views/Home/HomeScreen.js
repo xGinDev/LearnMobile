@@ -1,19 +1,35 @@
-import React from 'react'
-import { Pressable , View, Text, StyleSheet } from 'react-native'
+import React, { useState } from 'react'
+import { Pressable, View, Text, StyleSheet, Button } from 'react-native'
 
 const HomeScreen = ({ navigation }) => {
+  const [drawer, setDrawer] = useState(false);
+
+  const handleDrawerHome = () => {
+    setDrawer(true)
+  }
+  const handleCloseDrawerHome = () => {
+    setDrawer(!drawer)
+  }
+
   return (
     <View>
       <Text style={style.titleWelcome}>Bienvenidos a la app de xGinDev</Text>
-      <Pressable  style={[style.buttonContact, style.button]} onPress={() => navigation.navigate('Contact')}>
-        <Text style={style.textButton}>Ir a contacto</Text>
-      </Pressable>
-      <Pressable  style={[style.buttonCount, style.button]} onPress={() => navigation.navigate('CountScreen')}>
-        <Text style={style.textButton}>Ir a contador</Text>
-      </Pressable>
-      <Pressable  style={[style.buttonModal, style.button]} onPress={() => navigation.navigate('Modal')}>
-        <Text style={style.textButton}>Ir a Modal</Text>
-      </Pressable>
+      <Button title={drawer ? 'Cerrar Menú' : 'Abrir Menú'} color='#CDA434' onPress={() => (handleDrawerHome(), handleCloseDrawerHome())} />
+      {
+        drawer ?
+          <View style={style.containerMenu}>
+            <Pressable style={[style.buttonContact, style.button]} onPress={() => navigation.navigate('Contact')}>
+              <Text style={style.textButton}>Ir a contacto</Text>
+            </Pressable>
+            <Pressable style={[style.buttonCount, style.button]} onPress={() => navigation.navigate('CountScreen')}>
+              <Text style={style.textButton}>Ir a contador</Text>
+            </Pressable>
+            <Pressable style={[style.buttonModal, style.button]} onPress={() => navigation.navigate('Modal')}>
+              <Text style={style.textButton}>Ir a Modal</Text>
+            </Pressable>
+          </View>
+          : null
+      }
     </View>
   )
 }
@@ -22,9 +38,11 @@ const style = StyleSheet.create({
   titleWelcome: {
     padding: 10,
     fontWeight: 700,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1
+    textAlign: 'center'
+  },
+  containerMenu: {
+    gap: 10,
+    padding: 10
   },
   button: {
     alignItems: 'center',
@@ -33,22 +51,14 @@ const style = StyleSheet.create({
     paddingHorizontal: 32,
     borderRadius: 4,
     elevation: 3,
+    backgroundColor: '#000'
   },
-  buttonContact: {
-    backgroundColor: '#FE9A2E'
-  },
-  buttonCount: {
-    backgroundColor: '#00FF00'
-  },
-  buttonModal: {
-    backgroundColor: '#00BFFF'
-  },
-    textButton: {
-      fontSize: 16,
-      lineHeight: 21,
-      fontWeight: 'bold',
-      letterSpacing: 0.25,
-      color: 'white',
+  textButton: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
   }
 })
 
