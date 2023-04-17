@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, TouchableOpacity, View, SafeAreaView } from 'react-native'
+import { Text, TouchableOpacity, View, SafeAreaView, StyleSheet } from 'react-native'
 
 const CountScreen = () => {
   const [count, setCount] = useState(0);
@@ -10,14 +10,33 @@ const CountScreen = () => {
 
   return (
     <SafeAreaView>
-      <View>
-        <Text>{count ? (`Count: ${count}`) : null}</Text>
-      </View>
-      <TouchableOpacity onPress={() => handleIncrement()}>
-        <Text>Clickea!</Text>
+      <TouchableOpacity style={style.buttonCount} onPress={() => handleIncrement()}>
+        <Text style={style.textButtonCount}>Clickea!</Text>
       </TouchableOpacity>
+      <View>
+        <Text style={style.textCount}>{count ? (`Count: ${count}`) : null}</Text>
+      </View>
     </SafeAreaView>
   )
 }
+
+const style = StyleSheet.create({
+  buttonCount: {
+    backgroundColor: '#DDDDDD',
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  textButtonCount: {
+    fontWeight: 700,
+    justifyContent: 'center',
+     alignItems: 'center'
+  },
+  textCount: {
+    alignSelf: 'center',
+    fontSize: 24,
+    fontWeight: 700
+  }
+})
 
 export default CountScreen
