@@ -11,6 +11,9 @@ const HomeScreen = ({ navigation }) => {
       <Pressable  style={[style.buttonCount, style.button]} onPress={() => navigation.navigate('CountScreen')}>
         <Text style={style.textButton}>Ir a contador</Text>
       </Pressable>
+      <Pressable  style={[style.buttonModal, style.button]} onPress={() => navigation.navigate('Modal')}>
+        <Text style={style.textButton}>Ir a Modal</Text>
+      </Pressable>
     </View>
   )
 }
@@ -32,12 +35,15 @@ const style = StyleSheet.create({
     elevation: 3,
   },
   buttonContact: {
-    backgroundColor: '#FF04DB'
+    backgroundColor: '#FE9A2E'
   },
   buttonCount: {
-    backgroundColor: '#000'
+    backgroundColor: '#00FF00'
   },
-  textButton: {
+  buttonModal: {
+    backgroundColor: '#00BFFF'
+  },
+    textButton: {
       fontSize: 16,
       lineHeight: 21,
       fontWeight: 'bold',
