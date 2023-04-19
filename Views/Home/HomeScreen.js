@@ -30,6 +30,9 @@ const HomeScreen = ({ navigation }) => {
               <Pressable style={[style.buttonModal, style.button]} onPress={() => navigation.navigate('Modal')}>
                 <Text style={style.textButton}>Ir a Modal</Text>
               </Pressable>
+              <Pressable style={[style.buttonModal, style.button]} onPress={() => navigation.navigate('Simulator')}>
+                <Text style={style.textButton}>Ir a Simulador de crédito</Text>
+              </Pressable>
             </ScrollView>
           </View>
           : null
